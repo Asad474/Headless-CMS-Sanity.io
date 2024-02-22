@@ -9,6 +9,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'Keep title short...',
     }),
     defineField({
       name: 'slug',
@@ -18,6 +19,12 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+    }),
+    defineField({
+      name: 'timeToRead',
+      title: 'Time to Read',
+      type: 'number',
+      validation: Rule => Rule.required().lessThan(20),
     }),
     defineField({
       name: 'author',
